@@ -1,0 +1,13 @@
+apiVersion: config.terraform.padok.cloud/v1alpha1
+kind: TerraformLayer
+metadata:
+  name: dev-layer
+  namespace: burrito-system
+spec:
+  terraform:
+    version: "1.9.0"
+  path: "dev"
+  branch: "main"
+  repository:
+    name: burrito-repo
+    namespace: burrito-system
