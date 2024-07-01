@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: burrito
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: burrito
+    repoURL: oci://ghcr.io/padok-team/charts/burrito
+    targetRevision: 0.4.1
+    helm:
+      releaseName: burrito
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: burrito-system
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
