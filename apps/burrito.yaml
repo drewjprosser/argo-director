@@ -8,24 +8,13 @@ metadata:
 spec:
   project: default
   source:
-    chart: burrito
-    repoURL: ghcr.io/padok-team/charts
-    targetRevision: 0.4.1
-    helm:
-      releaseName: burrito
-      parameters:
-        - name: "server.ingress.enabled"
-          value: "true"
-        - name: "server.ingress.host"
-          value: "burrito.prossertech.com"
-        - name: "server.ingress.ingressClassName"
-          value: "nginx"
+    repoURL: https://github.com/drewjprosser/argo-director.git
+    targetRevision: HEAD 
+    path: apps/burrito
   destination:
     server: "https://kubernetes.default.svc"
     namespace: burrito-system
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
