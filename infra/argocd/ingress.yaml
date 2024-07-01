@@ -10,7 +10,7 @@ spec:
   ingressClassName: traefik
   rules:
   - host: argocd-k3s.prossertech.com
-    tcp:
+    http:
       paths:
       - pathType: Prefix
         path: /
