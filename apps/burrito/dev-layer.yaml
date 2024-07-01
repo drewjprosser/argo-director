@@ -9,5 +9,5 @@ spec:
   path: "dev"
   branch: "main"
   repository:
-    name: burrito-repo
+    name: burrito
     namespace: burrito-system
