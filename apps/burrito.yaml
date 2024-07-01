@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: burrito
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/drewjprosser/argo-director.git
+    targetRevision: HEAD 
+    path: apps/burrito
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: burrito-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
