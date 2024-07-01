@@ -3,11 +3,14 @@ kind: Ingress
 metadata:
   namespace: argocd
   name: argocd-ui
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+    traefik.ingress.kubernetes.io/router.tls.passthrough: "true"
 spec:
   ingressClassName: traefik
   rules:
   - host: argocd-k3s.prossertech.com
-    http:
+    tcp:
       paths:
       - pathType: Prefix
         path: /
