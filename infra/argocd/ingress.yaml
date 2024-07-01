@@ -13,14 +13,14 @@ spec:
       services:
         - name: argo-cd-argocd-server
           namespace: argocd
-          port: 443
+          port: 80
     - kind: Rule
       match: Host(`argocd-k3s.prossertech.com`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argo-cd-argocd-server
           namespace: argocd
-          port: 443
+          port: 80
           scheme: h2c
   # tls:
   #   certResolver: default
