@@ -15,7 +15,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: burrtio-server
+            name: burrito-server
             port:
               name: http
     host: director.prossertech.com
