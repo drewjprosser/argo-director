@@ -6,14 +6,15 @@ metadata:
   annotations:
     # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     # nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /burrito/
-        pathType: Prefix
+      - path: /burrito(/|$)(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: burrito-server
