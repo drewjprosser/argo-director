@@ -69,7 +69,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: semaphre.director.prossertech.com
+  - host: semaphore.director.prossertech.com
     http:
       paths:
       - pathType: Prefix
