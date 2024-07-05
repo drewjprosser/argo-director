@@ -33,15 +33,15 @@ spec:
   rules:
   - http:
       paths:
-      - path: /argocd
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: argo-cd-argocd-server
             port:
               name: http
-    host: director.prossertech.com
+    host: argocd.director.prossertech.com
   tls:
   - hosts:
-    - director.prossertech.com
+    - "*.director.prossertech.com"
     secretName: prossertech-com-tls
