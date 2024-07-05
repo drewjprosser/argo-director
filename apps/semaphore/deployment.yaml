@@ -57,26 +57,25 @@ spec:
     port: 80
     targetPort: 3000
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   namespace: semaphore
-#   name: semaphore-ui
-#   annotations:
-#   #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-#   #   nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-#     ingress.kubernetes.io/rewrite-target: /$2
-#     kubernetes.io/ingress.class: "nginx"
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - host: director.prossertech.com
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: /semaphore(/|$)(.*)
-#         backend:
-#           service:
-#             name: semaphore-svc
-#             port: 
-#               name: http
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: semaphore
+  name: semaphore-ui
+  annotations:
+  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  #   nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: semaphre.director.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: semaphore-svc
+            port: 
+              name: http
