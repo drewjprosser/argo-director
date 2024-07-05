@@ -22,7 +22,7 @@ spec:
             port:
               name: http
     host: director.prossertech.com
-  tls:
-  - hosts:
-    - director.prossertech.com
-  - secretName: prossertech-com-tls
+  # tls:
+  # - hosts:
+  #   - director.prossertech.com
+  # - secretName: prossertech-com-tls
