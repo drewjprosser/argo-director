@@ -14,14 +14,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /burrito
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: burrito-server
             port:
               name: http
-    host: director.prossertech.com
+    host: burrito.director.prossertech.com
   # tls:
   # - hosts:
   #   - director.prossertech.com
