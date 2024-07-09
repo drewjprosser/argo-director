@@ -1,21 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: burrito-system
+  name: atlantis
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    chart: burrito
-    repoURL: ghcr.io/padok-team/charts
-    targetRevision: 0.4.1
+    chart: atlantis
+    repoURL: https://runatlantis.github.io/helm-charts
+    targetRevision: 5.4.0
     helm:
-      releaseName: burrito
+      releaseName: atlantis
+      valuesObject:
+        orgAllowList: github.com/drewjprosser/*
+        vcsSecretName: github-vcs
+        ingress:
+          host: atlantis.director.prossertech.com
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: burrito-system
+    namespace: atlantis
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

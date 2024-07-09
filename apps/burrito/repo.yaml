@@ -1,9 +1,0 @@
-apiVersion: config.terraform.padok.cloud/v1alpha1
-kind: TerraformRepository
-metadata:
-  name: burrito
-  namespace: burrito-system
-spec:
-  repository:
-    url: https://github.com/drewjprosser/home-terraform.git
-    secretName: burrito-repo
