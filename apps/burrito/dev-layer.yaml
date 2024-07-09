@@ -10,7 +10,7 @@ spec:
   branch: "main"
   repository:
     name: burrito
-    namespace: burrito-system
+    namespace: burrito
   overrideRunnerSpec:
     env:
     volumes:
