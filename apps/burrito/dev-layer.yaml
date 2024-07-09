@@ -11,7 +11,6 @@ spec:
   repository:
     name: burrito
     namespace: burrito-system
-    kind: TerraformRepository
   overrideRunnerSpec:
     env:
     volumes:
