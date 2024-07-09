@@ -13,10 +13,8 @@ spec:
     path: apps/burrito
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: burrito
+    namespace: burrito-system
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
