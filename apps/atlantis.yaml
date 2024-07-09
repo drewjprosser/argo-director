@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: atlantis
       valuesObject:
-        orgAllowList: github.com/drewjprosser/*
+        orgAllowlist: github.com/drewjprosser/*
         vcsSecretName: github-vcs
         ingress:
           host: atlantis.director.prossertech.com
