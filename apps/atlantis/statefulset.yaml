@@ -118,4 +118,4 @@ spec:
           service:
             name: atlantis
             port: 
-              number: atlantis
+              name: atlantis
