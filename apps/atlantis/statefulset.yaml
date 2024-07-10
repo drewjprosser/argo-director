@@ -92,7 +92,7 @@ metadata:
   name: atlantis
   namespace: atlantis
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
   - name: atlantis
     port: 80
@@ -100,23 +100,23 @@ spec:
   selector:
     app.kubernetes.io/name: atlantis
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: atlantis
-#   namespace: atlantis
-#   labels:
-#     name: atlantis
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - host: atlantis.director.prossertech.com
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: "/"
-#         backend:
-#           service:
-#             name: atlantis
-#             port: 
-#               name: atlantis
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: atlantis
+  namespace: atlantis
+  labels:
+    name: atlantis
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: atlantis.director.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: atlantis
+            port: 
+              name: atlantis
