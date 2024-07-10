@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: atlantis-resources
+  name: atlantis
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -15,6 +15,8 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: atlantis
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
