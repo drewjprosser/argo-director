@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: atlantis
+  namespace: atlantis
 spec:
   serviceName: atlantis
   replicas: 1
@@ -89,6 +90,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: atlantis
+  namespace: atlantis
 spec:
   type: ClusterIP
   ports:
@@ -97,3 +99,23 @@ spec:
     targetPort: 4141
   selector:
     app.kubernetes.io/name: atlantis
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: atlantis
+  namespace: atlantis
+  labels:
+    name: atlantis
+spec:
+  rules:
+  - host: atlantis.director.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: atlantis
+            port: 
+              number: atlantis
