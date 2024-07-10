@@ -24,6 +24,8 @@ spec:
       - name: atlantis
         image: ghcr.io/runatlantis/atlantis:v0.28.3 # 1. Replace <VERSION> with the most recent release.
         env:
+        - name: ATLANTIS_ATLANTIS_URL
+          value: https://atlantis.prossertech.com
         - name: ATLANTIS_REPO_ALLOWLIST
           value: github.com/drewjprosser/* # 2. Replace this with your own repo allowlist.
 
