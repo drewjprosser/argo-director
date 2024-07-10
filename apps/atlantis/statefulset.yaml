@@ -92,7 +92,7 @@ metadata:
   name: atlantis
   namespace: atlantis
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: atlantis
     port: 80
