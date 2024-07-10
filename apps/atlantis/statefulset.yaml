@@ -5,7 +5,7 @@ metadata:
   namespace: atlantis
 spec:
   serviceName: atlantis
-  replicas: 1
+  replicas: 0
   updateStrategy:
     type: RollingUpdate
     rollingUpdate:
