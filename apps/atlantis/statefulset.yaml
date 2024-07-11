@@ -26,6 +26,8 @@ spec:
         env:
         - name: ATLANTIS_ATLANTIS_URL
           value: https://atlantis.prossertech.com
+        - name: ATLANTIS_USE_TF_PLUGIN_CACHE
+          value: "false"
         - name: ATLANTIS_REPO_ALLOWLIST
           value: github.com/drewjprosser/* # 2. Replace this with your own repo allowlist.
 
