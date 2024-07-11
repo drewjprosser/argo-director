@@ -56,11 +56,11 @@ spec:
           containerPort: 4141
         resources:
           requests:
-            memory: 256Mi
-            cpu: 100m
+            memory: 1Gi
+            cpu: 600m
           limits:
-            memory: 256Mi
-            cpu: 100m
+            memory: 1Gi
+            cpu: 600m
         livenessProbe:
           # We only need to check every 60s since Atlantis is not a
           # high-throughput service.
