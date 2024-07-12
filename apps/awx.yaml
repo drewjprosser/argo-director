@@ -13,6 +13,14 @@ spec:
     targetRevision: 2.19.1
     helm:
       releaseName: awx-operator
+      valuesObject:
+        AWX:
+          enabled: true
+          spec:
+            ingress_type: ingress 
+            ingress_hosts: 
+              - hostname: awx.director.prossertech.com
+            ingress_controller: nginx
   destination:
     server: "https://kubernetes.default.svc"
     namespace: awx
