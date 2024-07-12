@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/drewjprosser/argo-director.git
     targetRevision: HEAD
-    path: infra/cert-manager
+    path: infra/cert-manager-resources
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
