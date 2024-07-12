@@ -21,6 +21,11 @@ spec:
             ingress_hosts: 
               - hostname: awx.director.prossertech.com
             ingress_controller: nginx
+            init_postgres_extra_commands: |
+              sudo touch /var/lib/pgsql/data/foo
+              sudo touch /var/lib/pgsql/data/bar
+              chown 26:26 /var/lib/pgsql/data/foo
+              chown root:root /var/lib/pgsql/data/bar
   destination:
     server: "https://kubernetes.default.svc"
     namespace: awx
