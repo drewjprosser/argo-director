@@ -20,6 +20,10 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000 # Atlantis group (1000) read/write access to volumes.
+      volumes: 
+        - name: atlantis-secrets
+          secret:
+            secretName: atlantis-secrets
       containers:
       - name: atlantis
         image: ghcr.io/runatlantis/atlantis:v0.28.3 # 1. Replace <VERSION> with the most recent release.
@@ -51,6 +55,9 @@ spec:
         volumeMounts:
         - name: atlantis-data
           mountPath: /atlantis
+        - name: atlantis-secrets
+          mountPath: /vault/password
+          
         ports:
         - name: atlantis
           containerPort: 4141
