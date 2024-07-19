@@ -20,10 +20,6 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000 # Atlantis group (1000) read/write access to volumes.
-      volumes: 
-        - name: atlantis-secrets
-          secret:
-            secretName: atlantis-secrets
       containers:
       - name: atlantis
         image: ghcr.io/runatlantis/atlantis:v0.28.3 # 1. Replace <VERSION> with the most recent release.
@@ -52,11 +48,14 @@ spec:
           value: /atlantis
         - name: ATLANTIS_PORT
           value: "4141" # Kubernetes sets an ATLANTIS_PORT variable so we need to override.
+        - name: TERRAFORM_VAULT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: atlantis-secrets
+              key: password
         volumeMounts:
         - name: atlantis-data
           mountPath: /atlantis
-        - name: atlantis-secrets
-          mountPath: /vault/password
           
         ports:
         - name: atlantis
