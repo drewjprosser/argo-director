@@ -4,6 +4,8 @@ metadata:
   name: s3 
   namespace: minio
 spec:
+  configuration:
+    name: storage-configuration
   users:
   - name: storage-user
   pools:
