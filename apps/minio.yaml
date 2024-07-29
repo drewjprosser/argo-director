@@ -14,7 +14,9 @@ spec:
   #   helm:
   #     releaseName: tenant
   #     valuesObject:
-              
+  - repoURL: https://github.com/drewjprosser/argo-director
+    path: apps/minio
+    targetRevision: HEAD 
   - chart: operator
     repoURL: https://operator.min.io
     targetRevision: 6.0.1
