@@ -25,21 +25,22 @@ spec:
         storageClassName: directpv-min-io
       status: { }
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: s3-http
-#   labels:
-#     name: s3-http
-# spec:
-#   rules:
-#   - host: s3.director.prossertech.com
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: "/"
-#         backend:
-#           service:
-#             name: <Service>
-#             port: 
-#               number: <Port>
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: s3-console
+  namespace: minio
+  labels:
+    name: s3-console
+spec:
+  rules:
+  - host: s3-console.director.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: s3-console
+            port: 
+              number: 9443
