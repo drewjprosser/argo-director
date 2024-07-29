@@ -4,6 +4,8 @@ metadata:
   name: s3 
   namespace: minio
 spec:
+  users:
+  - name: storage-user
   pools:
   - servers: 1
     name: s3-pool
@@ -20,3 +22,22 @@ spec:
             storage: 10Gi
         storageClassName: directpv-min-io
       status: { }
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: s3-http
+  labels:
+    name: s3-http
+spec:
+  rules:
+  - host: s3.director.prossertech.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: <Service>
+            port: 
+              number: <Port>
