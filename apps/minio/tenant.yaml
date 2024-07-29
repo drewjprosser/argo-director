@@ -1,0 +1,22 @@
+apiVersion: minio.min.io/v2
+kind: Tenant 
+metadata:
+  name: s3 
+  namespace: minio
+spec:
+  pools:
+  - servers: 1
+    name: s3-pool
+    volumesPerServer: 4
+    volumeClaimTemplate:
+      apiVersion: v1
+      kind: persistentvolumeclaims
+      metadata: { }
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        storageClassName: directpv-min-io
+      status: { }
