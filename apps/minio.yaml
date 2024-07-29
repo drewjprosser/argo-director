@@ -8,9 +8,26 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://github.com/drewjprosser/argo-director
-    targetRevision: HEAD 
-    path: apps/minio
+  - repoURL: https://operator.min.io
+    targetRevision: 6.0.1
+    chart: tenant
+    helm:
+      releaseName: tenant
+      valuesObject:
+        tenant:
+          name: s3 
+          pools:
+          - servers: 1
+            name: pool-0
+            volumesPerServer: 4
+            size: 10Gi
+        ingress:
+          api: 
+            enabled: true
+            host: s3.director.prossertech.com
+          console:
+            enabled: true
+            host: minio.director.prossertech.com
   - chart: operator
     repoURL: https://operator.min.io
     targetRevision: 6.0.1
