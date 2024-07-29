@@ -25,9 +25,16 @@ spec:
           api: 
             enabled: true
             host: s3.director.prossertech.com
+            annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
           console:
             enabled: true
             host: minio.director.prossertech.com
+            annotations:
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+              
   - chart: operator
     repoURL: https://operator.min.io
     targetRevision: 6.0.1
