@@ -53,6 +53,16 @@ spec:
             secretKeyRef:
               name: atlantis-secrets
               key: password
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: storage-user
+              key: CONSOLE_ACCESS_KEY 
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: storage-user
+              key: CONSOLE_SECRET_KEY
         volumeMounts:
         - name: atlantis-data
           mountPath: /atlantis
