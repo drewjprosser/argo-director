@@ -37,6 +37,8 @@ spec:
   ignoreDifferences:
   - group: cilium.io
     kind: CiliumIdentity
+    jsonPointers:
+    - /
   - group: apps 
     kind: DaemonSet
     name: node-server
