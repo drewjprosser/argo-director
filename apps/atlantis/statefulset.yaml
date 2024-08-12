@@ -48,6 +48,16 @@ spec:
           value: /atlantis
         - name: ATLANTIS_PORT
           value: "4141" # Kubernetes sets an ATLANTIS_PORT variable so we need to override.
+        - name: VAULT_ADDR
+          valueFrom:
+            secretKeyRef:
+              name: atlantis-secrets
+              key: address
+        - name: TERRAFORM_VAULT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: atlantis-secrets
+              key: username
         - name: TERRAFORM_VAULT_PASSWORD
           valueFrom:
             secretKeyRef:
