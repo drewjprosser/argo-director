@@ -29,6 +29,19 @@ spec:
         - name: ATLANTIS_REPO_ALLOWLIST
           value: github.com/drewjprosser/* # 2. Replace this with your own repo allowlist.
 
+          ### Web Auth ###
+        - name: ATLANTIS_WEB_BASIC_AUTH
+          value: true 
+        - name: ATLANTIS_WEB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: atlantis-auth 
+              key: username
+        - name: ATLANTIS_WEB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: atlantis-auth
+              key: password
         ### GitHub Config ###
         - name: ATLANTIS_GH_USER
           value: drewjprosser # 3i. If you're using GitHub replace <YOUR_GITHUB_USER> with the username of your Atlantis GitHub user without the `@`.
