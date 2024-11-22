@@ -31,7 +31,7 @@ spec:
 
           ### Web Auth ###
         - name: ATLANTIS_WEB_BASIC_AUTH
-          value: true 
+          value: "true" 
         - name: ATLANTIS_WEB_USERNAME
           valueFrom:
             secretKeyRef:
