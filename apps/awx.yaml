@@ -10,7 +10,7 @@ spec:
   source:
     chart: awx-operator
     repoURL: https://ansible-community.github.io/awx-operator-helm/
-    targetRevision: 0.1.0
+    targetRevision: 2.19.1
     helm:
       releaseName: awx-operator
       valuesObject:
