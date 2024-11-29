@@ -18,7 +18,7 @@ spec:
           ingress:
             enabled: true
             hosts:
-              - host: vault.director.prossertech.com
+              - host: vault-director.int.prossertech.com
                 paths: ["/"]
         injector:
           enabled: false
